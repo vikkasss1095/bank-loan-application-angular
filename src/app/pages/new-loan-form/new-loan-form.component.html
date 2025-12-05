@@ -1,0 +1,73 @@
+<div class="form-background">
+  <div class="loan-form-container glass-card">
+    <h2 class="form-title">🏦 Bank Loan Application</h2>
+
+    <!-- Personal Details -->
+    <fieldset class="section">
+      <legend class="section-title">👤 Personal Details</legend>
+      <div class="form-row">
+        <div class="input-group"><i class="fa fa-user input-icon"></i><input type="text" placeholder="Full Name" [(ngModel)]="loanData.fullName"/></div>
+        <div class="input-group"><i class="fa fa-envelope input-icon"></i><input type="email" placeholder="Email" [(ngModel)]="loanData.email"/></div>
+        <div class="input-group"><i class="fa fa-phone input-icon"></i><input type="text" placeholder="Phone" [(ngModel)]="loanData.phoneNumber"/></div>
+      </div>
+      <div class="form-row">
+        <div class="input-group"><i class="fa fa-calendar input-icon"></i><input type="date" [(ngModel)]="loanData.dob"/></div>
+        <div class="input-group"><i class="fa fa-id-card input-icon"></i><input type="text" placeholder="PAN Card" [(ngModel)]="loanData.panCard"/></div>
+        <div class="input-group"><i class="fa fa-dollar-sign input-icon"></i><input type="number" placeholder="Annual Income" [(ngModel)]="loanData.annualIncome"/></div>
+      </div>
+      <div class="form-row">
+        <div class="input-group"><i class="fa fa-briefcase input-icon"></i>
+          <select [(ngModel)]="loanData.employmentStatus">
+            <option value="">Employment Status</option>
+            <option value="Employed">Employed</option>
+            <option value="Unemployed">Unemployed</option>
+            <option value="Freelancer">Freelancer</option>
+            <option value="Student">Student</option>
+          </select>
+        </div>
+        <div class="input-group"><i class="fa fa-star input-icon"></i><input type="number" placeholder="Credit Score" [(ngModel)]="loanData.creditScore"/></div>
+      </div>
+      <div class="form-row">
+        <div class="input-group"><i class="fa fa-building input-icon"></i><input type="text" placeholder="Assets" [(ngModel)]="loanData.assets"/></div>
+      </div>
+    </fieldset>
+
+    <!-- Address Details -->
+    <fieldset class="section">
+      <legend class="section-title">🏠 Address</legend>
+      <div class="form-row">
+        <div class="input-group"><i class="fa fa-city input-icon"></i><input type="text" placeholder="City" [(ngModel)]="loanData.city"/></div>
+        <div class="input-group"><i class="fa fa-map input-icon"></i><input type="text" placeholder="State" [(ngModel)]="loanData.state"/></div>
+        <div class="input-group"><i class="fa fa-map-pin input-icon"></i><input type="text" placeholder="ZIP Code" [(ngModel)]="loanData.zipCode"/></div>
+      </div>
+      <div class="form-row">
+        <div class="input-group"><i class="fa fa-home input-icon"></i><input type="text" placeholder="Full Address" [(ngModel)]="loanData.address"/></div>
+      </div>
+    </fieldset>
+
+    <!-- Loan Details Table -->
+    <fieldset class="section">
+      <legend class="section-title">💰 Loan Details</legend>
+      <div class="loan-table-container">
+        <table class="loan-table">
+          <thead>
+            <tr><th>Bank Name</th><th>Amount</th><th>EMI</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let loan of loanDetails; let i = index">
+              <td><input type="text" [(ngModel)]="loan.bankName" placeholder="Bank Name"/></td>
+              <td><input type="number" [(ngModel)]="loan.loanAmount" placeholder="Amount"/></td>
+              <td><input type="number" [(ngModel)]="loan.emi" placeholder="EMI"/></td>
+              <td><button class="remove-btn" (click)="removeLoanDetail(i)"><i class="fa fa-trash"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="add-btn-container">
+        <button class="add-btn" (click)="addLoanDetail()"><i class="fa fa-plus-circle"></i> Add More</button>
+      </div>
+    </fieldset>
+
+    <button class="submit-btn" (click)="onSubmit()">Submit Application</button>
+  </div>
+</div>

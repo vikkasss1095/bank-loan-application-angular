@@ -1,0 +1,69 @@
+{
+  "customers": [
+    {
+      "id": "685e",
+      "userName": "vikas123",
+      "emailId": "vikas123@gmail.com",
+      "fullName": "vikas",
+      "password": "1234"
+    }
+  ],
+  "loans": [
+    {
+      "id": "2e1b",
+      "fullName": "vikas thavaliya",
+      "email": "vikas@gmail.com",
+      "phoneNumber": "7410852963",
+      "dob": "2025-10-02",
+      "panCard": "74152",
+      "annualIncome": 8541121,
+      "employmentStatus": "Employed",
+      "creditScore": 582,
+      "assets": "knm nj njm njm",
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "zipCode": "4854",
+      "address": "kailashpuri",
+      "loanDetails": [
+        {
+          "bankName": "hdfc",
+          "loanAmount": 100000,
+          "emi": 1000
+        },
+        {
+          "bankName": "BOI",
+          "loanAmount": 85285252,
+          "emi": 1000
+        }
+      ],
+      "status": "Approved",
+      "remarks": "fghn",
+      "showMore": true
+    },
+    {
+      "id": "5383",
+      "fullName": "ram ",
+      "email": "ram@gmail.com",
+      "phoneNumber": "8529641",
+      "dob": "2025-10-04",
+      "panCard": "789456",
+      "annualIncome": 85,
+      "employmentStatus": "Student",
+      "creditScore": 823,
+      "assets": "bbaddb dbdk c dd",
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "zipCode": "4854",
+      "address": "kailashpuri",
+      "loanDetails": [
+        {
+          "bankName": "ICCI",
+          "loanAmount": 45000,
+          "emi": 450
+        }
+      ],
+      "status": "Pending",
+      "remarks": ""
+    }
+  ]
+}

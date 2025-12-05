@@ -1,0 +1,180 @@
+/* Background Gradient Animation */
+body, html {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background {
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6a00, #ff3d7f);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating Animated Shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  animation: float 10s infinite ease-in-out;
+}
+
+.shape:nth-child(1) { width: 120px; height: 120px; top: 10%; left: 20%; }
+.shape:nth-child(2) { width: 80px; height: 80px; top: 70%; left: 15%; }
+.shape:nth-child(3) { width: 150px; height: 150px; top: 40%; right: 15%; }
+.shape:nth-child(4) { width: 100px; height: 100px; bottom: 10%; right: 25%; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+}
+
+/* Container */
+.login-container {
+  display: flex;
+  width: 900px;
+  height: 560px;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Left Panel */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  padding: 30px;
+}
+
+.welcome-text {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.register-btn {
+  margin-top: 20px;
+  padding: 10px 30px;
+  border: none;
+  background: white;
+  color: #2575fc;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* Right Panel */
+.glass-card {
+  flex: 1;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  padding: 50px;
+  color: white;
+}
+
+.right-panel h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: white;
+}
+
+/* Input Styling */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  transition: 0.3s;
+}
+
+.input-group input::placeholder {
+  color: #eee;
+}
+
+.input-group input:focus {
+  background: rgba(255,255,255,0.4);
+  box-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+
+/* Buttons */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+/* Or + Social */
+.or-text {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 14px;
+  color: #eee;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 26px;
+  color: white;
+}
+
+.social-icons i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  color: #ff6a00;
+  transform: scale(1.2) rotate(10deg);
+}

@@ -1,0 +1,104 @@
+<!-- LOGIN FORM -->
+<div *ngIf="!isLoggedIn" class="login-wrapper">
+  <div class="login-card">
+    <h2 class="login-title">Admin Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="input-group">
+        <input type="text" placeholder=" " [(ngModel)]="username" name="username" required />
+        <label>Username</label>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder=" " [(ngModel)]="password" name="password" required />
+        <label>Password</label>
+      </div>
+      <button class="login-btn" type="submit">Login</button>
+      <p class="error-msg" *ngIf="loginError">{{ loginError }}</p>
+    </form>
+  </div>
+</div>
+
+<!-- LOGIN FORM -->
+<div *ngIf="!isLoggedIn" class="login-container">
+  <!-- login form code yaha -->
+</div>
+
+<!-- DASHBOARD -->
+<div *ngIf="isLoggedIn" class="banker-container">
+  <div class="dashboard-header">
+    <h2 class="dashboard-title">💼 Loan Applications</h2>
+    <button class="btn btn-outline-danger btn-sm logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  
+</div>
+
+
+<!-- DASHBOARD -->
+<div *ngIf="isLoggedIn" class="banker-container">
+  <h2 class="dashboard-title">💼 Loan Applications</h2>
+
+  <table class="loan-table table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Remarks</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let loan of loans">
+        <tr>
+          <td>{{ loan.fullName }}</td>
+          <td>{{ loan.email }}</td>
+          <td>{{ loan.phoneNumber }}</td>
+          <td>{{ loan.status }}</td>
+          <td>{{ loan.remarks || '-' }}</td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="toggleViewMore(loan)">
+              {{ loan.showMore ? 'Hide Details' : 'View More' }}
+            </button>
+            <button class="btn btn-success btn-sm" (click)="updateStatus(loan, 'Approved')">Approve</button>
+            <button class="btn btn-warning btn-sm" (click)="updateStatus(loan, 'Rejected')">Reject</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteLoan(loan.id)">Delete</button>
+          </td>
+        </tr>
+
+        <!-- Expanded Row -->
+        <tr *ngIf="loan.showMore">
+          <td colspan="6">
+            <div class="details">
+              <p><strong>DOB:</strong> {{ loan.dob }}</p>
+              <p><strong>PAN:</strong> {{ loan.panCard }}</p>
+              <p><strong>Income:</strong> ₹{{ loan.annualIncome }}</p>
+              <p><strong>Employment:</strong> {{ loan.employmentStatus }}</p>
+              <p><strong>Credit Score:</strong> {{ loan.creditScore }}</p>
+              <p><strong>Assets:</strong> {{ loan.assets }}</p>
+              <p><strong>Address:</strong> {{ loan.address }}, {{ loan.city }}, {{ loan.state }} - {{ loan.zipCode }}</p>
+
+              <table class="table table-sm table-bordered inner-loan-table mt-2">
+                <thead>
+                  <tr>
+                    <th>Bank Name</th>
+                    <th>Amount</th>
+                    <th>EMI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let detail of loan.loanDetails">
+                    <td>{{ detail.bankName || '-' }}</td>
+                    <td>{{ detail.loanAmount || '-' }}</td>
+                    <td>{{ detail.emi || '-' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+</div>

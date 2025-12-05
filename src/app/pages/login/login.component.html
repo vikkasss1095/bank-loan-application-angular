@@ -1,0 +1,39 @@
+<div class="background">
+  <!-- Floating shapes -->
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+
+  <div class="login-container">
+    <div class="left-panel">
+      <h1 class="welcome-text">👋 Welcome Back!</h1>
+      <p>Don’t have an account?</p>
+      <button class="register-btn" routerLink="/register">Register</button>
+    </div>
+
+    <div class="right-panel glass-card">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm">
+        <div class="input-group">
+          <input type="text" formControlName="userName"  placeholder="Username" required>
+        </div>
+        <div class="input-group">
+          <input type="password" formControlName="password" placeholder="Password" required>
+        </div>
+
+        <a href="#" class="forgot">Forgot Password?</a>
+
+        <button type="submit" class="login-btn" (click)="onLogin()">Login</button>
+
+        <p class="or-text">or login with</p>
+        <div class="social-icons">
+          <i class="fab fa-google"></i>
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-github"></i>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
